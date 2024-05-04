@@ -155,7 +155,7 @@ This statement is made up of the identifier associated with the function’s dec
 
 #### Behavior:
 
-Equality expressions are used to check if values are equal or not equal to each other. This operation is left associative.
+Equality expressions are used to check if values are equal or not equal to each other. Equality expressions evealuate to true or false. Equality expressions can also handle any type in CatScript. You can check the equality of values of the same type, but you can also check the equality of values that are of different types. true == 1 is a valid equality expression that would evaluate to false. Equality expressions are most useful when used in an if statement as the entry condition.
 
 ### Comparison Expression
 
@@ -177,7 +177,7 @@ Equality expressions are used to check if values are equal or not equal to each 
 
 #### Behavior:
 
-Comparison expressions are used to check if variables are less than each other, if variables are less than or equal to each other, if variables are greater than each other, or even if variables are less than or equal to each other. This expression is also left associative.
+Comparison expressions are used to check if variables are less than each other, if variables are less than or equal to each other, if variables are greater than each other, or even if variables are greater than or equal to each other. Similar to equality expressions, comparsion expressions are most useful as entry conditions to an if statement. But comparison expressions in CatScript can only be used to compare integers. Trying to compare any other type will result in an incompatible type error.
 
 ### Additive Expression
 
@@ -199,7 +199,7 @@ Comparison expressions are used to check if variables are less than each other, 
 
 #### Behavior:
 
-Additive expressions are used to do mathematical operations on variables. The additive expression adds the left hand side to the right hand side and returns the result. Catscript can also subtract or even add negative numbers together. In Catscript the additive expressions also support the ability to concatenate two strings together. The additive expression is left associative.
+Additive expressions are used to do mathematical operations on integers. The additive expression adds the left hand side to the right hand side and returns the result. Catscript can also subtract or even add negative numbers together. In Catscript the additive expressions also support the ability to concatenate two strings together. The additive expression is left associative, meaning it will execute from left to right. Something to note is that concatination will happen if either side of the addition operator is a string. For example, "number " + 4 will result in the string value "number 4".
 
 ### Factor Expression
 
@@ -217,7 +217,7 @@ Additive expressions are used to do mathematical operations on variables. The ad
 
 #### Behavior:
 
-Factor expressions will either multiply the right hand side by the left hand side or divide them depending on if a * or / is used. Factor expressions are also left associative.
+Factor expressions will either multiply the right hand side by the left hand side or divide them depending on if a * or / is used. Factor expressions are also left associative. It is worth noting that factor expressions override the left associativity of additive expressions. For example, 5 + 5 * 6 will evaluate to 35 since the factor expression takes priority over additive expressions. Integers are the only value that can be used with a factor expression, the use of other types in factor expressions will result in an error. 
 
 ### Unary Expression
 
@@ -261,6 +261,7 @@ Primary expressions are any single token expression. This can be an identifier w
 
 ```
 4 + 5 + (6 - 3) is 9 + 3 is 12
+Not (5 == 5)
 ```
 
-Any expression can also be parenthesized in Catscript with parentheses. This changes the associativity of any expression.
+Any expression can also be parenthesized in Catscript with parentheses. This changes the associativity of any expression. This means that the expressions that are inside of the parentheses take priority in the order of execution. This can be used to ensure proper execution of mathematical expressions as well as using nots on comparison and equality expressions as shown above.
