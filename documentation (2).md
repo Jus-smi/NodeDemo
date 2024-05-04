@@ -139,6 +139,23 @@ When the function bar is called it will pass in the value "foo bar" and the func
 
 This statement is made up of the identifier associated with the function’s declaration and arguments that match the arguments within the function’s declaration. The arguments that are placed into the parentheses following the function's identifier need to match the types specified in the function declaration and the order of values does matter. The function call will pass in these arguments to the function and run the code that we put in the function’s declaration. Something to not with function calls is that functions can be called within functions allowing for some more advanced coding, such as recursion. This allows the function you are currently in to call itself, this can be useful when trying to code a repetitive task and provides similar functionality to loops with some ability to code some more advanced things.
 
+### Return Statments
+
+```
+return
+return x
+```
+
+#### Example:
+
+int x = 1
+function foo(x) : int { return x + 1 }
+int y = foo(x) - y would be 2 since foo would take the value in x then add one and return the new value.
+
+#### Behavior:
+
+Return statements are used at the end of a function to end the function and return a value if the function delcaration has a return type. If a function does not have a return type specified, a return statement can still to end the function. This would be best used inside of an if statement to terminate a function if a certain criteria is met. A return is also used to specify what value to return if the function has a return type specified in the declaration. The value being returned must match the type specified in the delcaration of the function.
+
 ### Equality Expression
 
 ```
